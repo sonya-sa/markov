@@ -41,7 +41,7 @@ def make_chains(text_string):
         [None]
     """
     words = input_text.split()
-    print words
+   
     #creates dictionary
     chains = {}
   
@@ -62,7 +62,7 @@ def make_chains(text_string):
 
         #rememberd: chains.get(key) returns value, and holds type; value is list for this function 
 
-   
+    print chains
     return chains
 
 
@@ -71,10 +71,40 @@ def make_text(chains):
 
     words = []
 
-    # your code goes here
+    #create a link that is a key from dict
+    #key is adding a word from value to lst(words)
+    # for key, value in chains.items():
+    #     words.append(random.choice(value))
+        #random_word = random.choice(["words","first"])
+        # print random_word
+        # words.append(random_word)
 
-    return " ".join(words)
+        # chains[key[1],random from values] =
+        # look up values with of above new key .get
 
+
+        #words.append(chains.values())
+
+    random_key = choice(chains.keys())
+    words.append(random_key)
+
+    while True:
+        if random_key in chains:
+            random_value = choice(chains.get(random_key))
+            words.append(random_value)
+
+            random_key = (random_key[1], random_value)
+
+        else:
+            break
+   
+
+    #print words
+        # print link 
+    #return " ".join(words)
+
+
+#random.choice(values)
 
 input_path = "green-eggs.txt"
 
